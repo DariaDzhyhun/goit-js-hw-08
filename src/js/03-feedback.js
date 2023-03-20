@@ -14,10 +14,14 @@ function onFormInput(event) {
 }
 
 function onFormSubmit(event) {
-  console.log(JSON.parse(localStorage.getItem(KEY)));
-  event.preventDefault();
-  formEl.reset();
-  localStorage.removeItem(KEY);
+  if (formEl.email.value === '' || formEl.message.value === '') {
+    return alert('Заповніть всі поля!');
+  } else {
+    console.log(JSON.parse(localStorage.getItem(KEY)));
+    event.preventDefault();
+    formEl.reset();
+    localStorage.removeItem(KEY);
+  }
 }
 
 function checkData() {
